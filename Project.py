@@ -60,7 +60,7 @@ class Pythonminiproject:
 
                         str1 = (input_file1[i-1]+' ' + input_file1[i] + ' '+input_file1[i+1])
                         # printing command for one word before and after
-                        write_file.write(str(self.count) + ' :')
+                        # write_file.write(str(self.count) + ' :')
                         write_file.writelines(str(str1) + '\n')
                         # appending the search word in created file
 
@@ -68,3 +68,5 @@ class Pythonminiproject:
 obj = Pythonminiproject()
 
 obj.taking_input()
+
+print("PROJECT ENDS")
