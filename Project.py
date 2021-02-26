@@ -1,36 +1,62 @@
+"""
+This code take the user input as a keyword
+search the particular keyword in given text file
+create a new text file with same name
+and have count in it.
+Author: Ujjawal Kumar
+Contact: ujjawal.kumar@ltts.com
+PS No.: 99003745
+Date of creation: 23/02/2021
+"""
 import re
 
-class  python_miniproject() :
+
+class Pythonminiproject:
+
     def __init__(self):
-        print("WELCOME TO WORD FINDER")
+        print("##########$$_WELCOME TO WORD FINDER_$$##########")
+        # print the Heading for our console
         self.count = 0
         self.input_file = open("input.txt", "r")
+        # opening the given file
         self.read_file = self.input_file.read()
-
+        # reading the given file
 
     def taking_input(self):
-        self.Taking_No_int = int(input("ENTER THE No. OF WORDS YOU WANT TO SEARCH: "))
-        for y in range(self.Taking_No_int):
-             find_word = input("Enter The Keyword: ")
-             x = re.findall(find_word,  self.read_file, re.M | re.I)
+        taking_no_int = int(input("ENTER THE No. OF WORDS YOU WANT TO SEARCH: "))
+        # taking the total number of input by the user
+        for y in range(taking_no_int):
+            find_word = input("Enter The Keyword: ")
+            # taking the keyword we want to search
+            x = re.findall(find_word,  self.read_file, re.M | re.I)
+            # finding the word in the opened text file
 
-             input_file1 = self.read_file.split()
+            input_file1 = self.read_file.split()
+            # splitting the text file
 
-             file_save = find_word+'.txt'
-             write_file = open(file_save, 'w+')
-             write_file.write('No. of time ' + find_word + ' repeated:' + str(len(x))+'\n')
-             print("A NEW TEXT FILE " + find_word + " IS CREATING....")
+            file_save = find_word+'.txt'
+            # creating the text file in the name of searched keyword
+            write_file = open(file_save, 'w+')
+            # opening the created file for saving the keyword
+            write_file.write('No. of time ' + find_word + ' repeated:' + str(len(x))+'\n')
+            # adding line in the file  for count
+            print("A NEW TEXT FILE " + find_word + " IS CREATING....")
+            # printing instruction
 
-             for i in range(len(input_file1)):
+            for i in range(len(input_file1)):
                 word = re.match(find_word, input_file1[i], re.M | re.I)
+                # for matching word in the file
+
                 if word:
                     self.count += 1
 
                     str1 = (input_file1[i-1]+' ' + input_file1[i] + ' '+input_file1[i+1])
+                    # printing command for one word before and after
                     write_file.write(str(self.count) + ' :')
-                    write_file.writelines(str(str1) + '\n')
-                #close_file = self.input_file.close()
+                    write_file.write(str(str1) + '\n')
+                    # appending the search word in created file
 
-obj = python_miniproject()
+
+obj = Pythonminiproject()
 
 obj.taking_input()
