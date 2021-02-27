@@ -14,7 +14,7 @@ import re
 class Pythonminiproject:
 
     def __init__(self):
-        print("##########$$_WELCOME TO WORD FINDER_$$##########")
+        print("##########$$_WELCOME TO WORD FINDER_$$##########"+'\n'+'\n')
         # print the Heading for our console
         self.count = 0
         self.input_file = open("input.txt", "r")
